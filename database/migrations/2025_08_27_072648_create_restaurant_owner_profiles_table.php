@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('restsurent_owner_profiles', function (Blueprint $table) {
+        Schema::create('restsurant_owner_profiles', function (Blueprint $table) {
             $table->id();
             //1 to 1 rlt with users
             $table->foreignId('user_id')->unique()->constrained('users')->cascadeOnDelete();

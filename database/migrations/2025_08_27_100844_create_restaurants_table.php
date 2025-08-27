@@ -13,10 +13,12 @@ return new class extends Migration
     {
         Schema::create('restaurants', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('owner_id')->unique()->constrained('restaurent_owner_profiles')->restrictOnDelete();
+            $table->foreignId('owner_profile_id')
+                  ->constrained('restsurant_owner_profiles')
+                  ->restrictOnDelete(); // cannot delete owner profile if he has restaurants
             $table->string('name');
             $table->string('description')->nullable();
-            $table->string('kitchen_type')->nullable();//lebanese/italian...
+            $table->string('kitchen_type')->nullable(); //lebanese/italian...
             $table->enum('status',['active','suspended','pending_review','draft']);
             $table->decimal('rating',3,2)->default(0);
             $table->timestamps();
