@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('menu_id')->constrained('menus')->cascadeOnDelete();
+            $table->string('name');
+            $table->unsignedSmallInteger('position')->default(1);
+            $table->boolean('is_active')->default(1);
+            $table->unique(['menu_id','name']);
             $table->timestamps();
         });
     }
