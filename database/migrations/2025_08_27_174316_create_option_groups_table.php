@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('dish_id')->constrained('dishes')->cascadeOnDelete();
             $table->string('name');  // size extra drink ... 
-            $table->enum('type',['single','multiple'])->default('single');
-            $table->unsignedSmallInteger('min_select')->default(0);
+            $table->enum('type',['single','multiple'])->default('single'); // choose one option or multiple options
+            $table->unsignedSmallInteger('min_select')->default(0); // min options the customer can choose
             $table->unsignedSmallInteger('max_select')->nullable(); // null = no upper limit
             $table->boolean('is_required')->default(false);
             $table->unsignedSmallInteger('position')->default(1);
