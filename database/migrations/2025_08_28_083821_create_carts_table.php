@@ -21,7 +21,7 @@ return new class extends Migration
             $table->decimal('discount_total', 10, 2)->default(0);
             $table->decimal('grand_total', 10, 2)->default(0);
             $table->enum('status',['active','converted','abandoned'])->default('active');
-            $table->unique('user_id','branch_id','status'); //  prevent multiple active carts for the same user & branch         
+            $table->unique(['user_id','branch_id','status']); //  prevent multiple active carts for the same user & branch         
             $table->timestamps();
         });
     }
