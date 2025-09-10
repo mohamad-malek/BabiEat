@@ -49,4 +49,20 @@ class User extends Authenticatable
         //     'password' => 'hashed',
         ];
     }
+
+
+    // relation ships
+
+        public function customerprofile(){
+            return $this->hasOne(CProfile::class);
+        }
+
+
+
+
+
+
+
+
+
 }

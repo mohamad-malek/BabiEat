@@ -12,12 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('customer_profiles', function (Blueprint $table) {
-              $table->id();
+            $table->id();
             $table->foreignId('user_id')->unique()->constrained('users')->cascadeOnDelete();
-            $table->foreignId('address_id')->nullable()->constrained('addresses')->nullOnDelete();
+          //  $table->foreignId('address_id')->nullable()->constrained('addresses')->nullOnDelete();
             $table->date('date_of_birth')->nullable();
             $table->enum('gender',['male','female']);
-            $table->integer('loyalty_points')->default(0);
+           // $table->integer('loyalty_points')->default(0)->nullable();
+            $table->text('bio')->nullable();
+            $table->string('image');
             $table->timestamps();
         });
     }
