@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('user_id')->unique()->constrained('users')->cascadeOnDelete();
             // owner must be verified by admin before allowed to create restaurents
             $table->enum('kyc_status',['pending','verified','rejected'])->default('pending');
+            $table->string('image');
             $table->timestamps();
         });
     }

@@ -57,7 +57,14 @@ class User extends Authenticatable
             return $this->hasOne(CProfile::class);
         }
 
-
+        public function ownerprofile(){
+            return $this->hasOne(OwnerProfile::class);
+        }
+        
+        public function driverprofile()
+        {
+            return $this->hasOne(DriverProfile::class);
+        }
 
 
 

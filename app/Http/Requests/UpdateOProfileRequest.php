@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreCprofileRequest extends FormRequest
+class UpdateOProfileRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,11 +22,7 @@ class StoreCprofileRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'date_of_birth'=>'sometimes|nullable|date|before:today',
-            'gender'=>'required|string|in:male,female',
-            'bio'=>'nullable|string',
-            'image'=>'required|image|mimes:png,jpg,jpeg|max:2048'
-
+              'image'=>'required|image|mimes:png,jpg,jpeg|max:2048'
         ];
     }
 }
