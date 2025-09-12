@@ -23,7 +23,8 @@ class StoreDProfileRequest extends FormRequest
     {
         return [
                 "vehicle_type"=>'required|in:bike,car,scooter,foot',
-                "image"=>'image|required|mimes:png,jpg,jpeg|max:2048'
+                "image"=>'image|required|mimes:png,jpg,jpeg|max:2048',
+                'rating_avg'=>'sometimes'
                 
         ];
     }

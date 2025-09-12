@@ -22,7 +22,7 @@ class UpdateDProfileRequest extends FormRequest
     public function rules(): array
     {
         return [
-             "vehicle_type"=>'required|in:bike,car,scooter,foot',
+             "vehicle_type"=>'in:bike,car,scooter,foot',
         ];
     }
 }

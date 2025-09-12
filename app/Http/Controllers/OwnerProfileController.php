@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Auth as FacadesAuth;
 use Illuminate\Support\Facades\Auth as SupportFacadesAuth;
+use Illuminate\Support\Facades\Auth as IlluminateSupportFacadesAuth;
 
 class OwnerProfileController extends Controller
 {
@@ -17,7 +18,7 @@ class OwnerProfileController extends Controller
     {   
         try{
 
-           $user_id = Auth::user()->id();
+           $user_id =Auth::user()->id;
            $validatedData=$request->validated();
            $validatedData['user_id']=$user_id;
            if($request->hasFile('image')){
@@ -49,6 +50,7 @@ class OwnerProfileController extends Controller
         if($profile->user_id!=$user_id){
             return response()->json('unauthrized',403);
         }else{
+            $validatedData=$request->validated();
             $profile->update($request->validated());
             return response()->json([
                 "message"=>"Profile updated succesfully",
@@ -57,3 +59,4 @@ class OwnerProfileController extends Controller
         }
     }
 }
+

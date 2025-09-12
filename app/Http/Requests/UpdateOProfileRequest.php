@@ -22,7 +22,9 @@ class UpdateOProfileRequest extends FormRequest
     public function rules(): array
     {
         return [
-              'image'=>'required|image|mimes:png,jpg,jpeg|max:2048'
+              'image'=>'nullable|image|mimes:png,jpg,jpeg|max:2048',
+               "kyc_status"=>"sometimes|in:pending,verified,rejected"
+               
         ];
     }
 }
