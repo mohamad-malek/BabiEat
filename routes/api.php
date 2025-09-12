@@ -24,14 +24,13 @@ Route::middleware('auth:sanctum')->group(function()
 
 Route::prefix('/profile')->group(function(){
 
-        Route::post('/customer',[CustomerProfileController::class,'StoreCustomerProfile']);
-        Route::put('/customer/{id}',[CustomerProfileController::class,'UpdateCustomerProfile']);
-        Route::post('/owner',[OwnerProfileController::class,'StoreOwnerProfile']);
-        Route::put('/owner/{id}',[OwnerProfileController::class,'UpdateOwnerProfile']);
-        Route::post('/driver',[DriverProfileController::class,'StoreDriverProfile']);
-        Route::put('/driver/{id}',[DriverProfileController::class,'UpdateDriverProfile']);
+        Route::post('/customer',[CustomerProfileController::class,'StoreCustomerProfile'])->middleware('CustomerCheck');
+        Route::put('/customer/{id}',[CustomerProfileController::class,'UpdateCustomerProfile'])->middleware('CustomerCheck');
+        Route::post('/owner',[OwnerProfileController::class,'StoreOwnerProfile'])->middleware('OwnerCheck');
+        Route::put('/owner/{id}',[OwnerProfileController::class,'UpdateOwnerProfile'])->middleware('OwnerCheck');
+        Route::post('/driver',[DriverProfileController::class,'StoreDriverProfile'])->middleware('DriverCheck');
+        Route::put('/driver/{id}',[DriverProfileController::class,'UpdateDriverProfile'])->middleware('DriverCheck');
 
         
 }); 
 });
-
